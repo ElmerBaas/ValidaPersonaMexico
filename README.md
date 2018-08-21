@@ -1,8 +1,10 @@
 # ValidaPersonaMexico
 
 2018-08-21 v0.1
+
 -Cuenta con un método para validar los curp's
-http://187.160.251.219/ws/index.php?wsdl
+
+Ws: http://187.160.251.219/ws/index.php?wsdl
 
 Usuario: prueba
 
