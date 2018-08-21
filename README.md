@@ -12,3 +12,5 @@ Contraseña: sC}9pW1Q]c
 
 Curp pruebas: LOOA531113HTCPBN07
 
+Verificar el archivo curp.php
+
