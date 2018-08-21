@@ -1,16 +1,17 @@
 <?php
-				$peticion = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ValidateMexico">
-				   <soapenv:Header/>
-				   <soapenv:Body>
-				      <urn:Curp soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-				         <return xsi:type="urn:CurpReq">
-				            <user xsi:type="xsd:string">prueba</user>
-				            <password xsi:type="xsd:string">sC}9pW1Q]c</password>
-				            <Curp xsi:type="xsd:string">LOOA531113HTCPBN07</Curp>
-				         </return>
-				      </urn:Curp>
-				   </soapenv:Body>
-				</soapenv:Envelope>';
+
+	$peticion = '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:ValidateMexico">
+	   <soapenv:Header/>
+	   <soapenv:Body>
+	      <urn:Curp soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+		 <return xsi:type="urn:CurpReq">
+		    <user xsi:type="xsd:string">prueba</user>
+		    <password xsi:type="xsd:string">sC}9pW1Q]c</password>
+		    <Curp xsi:type="xsd:string">LOOA531113HTCPBN07</Curp>
+		 </return>
+	      </urn:Curp>
+	   </soapenv:Body>
+	</soapenv:Envelope>';
         $header = array(
             'Content-type: text/xml;charset="utf-8"',
             'Accept-Encoding: gzip, deflate',
@@ -28,17 +29,17 @@
         curl_setopt($curl, CURLOPT_POSTFIELDS, $peticion);
         curl_setopt($curl, CURLOPT_ENCODING, $peticion);
         $re = curl_exec($curl);
-				curl_close($curl);
-				$doom = new \DOMDocument();
-				$doom->loadXML($re);
-				$estatus = $doom->getElementsByTagName('Response')->item(0)->nodeValue;
-				if ($estatus=='correct') {
-						echo 'Curp: '.  $doom->getElementsByTagName('Curp')->item(0)->nodeValue ."<br/>";
-						echo 'Paterno: '.$doom->getElementsByTagName('Paterno')->item(0)->nodeValue."<br/>";
-						echo 'Materno: '.$doom->getElementsByTagName('Materno')->item(0)->nodeValue."<br/>";
-						echo 'Nombre: '.$doom->getElementsByTagName('Nombre')->item(0)->nodeValue."<br/>";
-				}else{
-					echo "Error";
-				}
+	curl_close($curl);
+	$doom = new \DOMDocument();
+	$doom->loadXML($re);
+	$estatus = $doom->getElementsByTagName('Response')->item(0)->nodeValue;
+	if ($estatus=='correct') {
+			echo 'Curp: '.  $doom->getElementsByTagName('Curp')->item(0)->nodeValue ."<br/>";
+			echo 'Paterno: '.$doom->getElementsByTagName('Paterno')->item(0)->nodeValue."<br/>";
+			echo 'Materno: '.$doom->getElementsByTagName('Materno')->item(0)->nodeValue."<br/>";
+			echo 'Nombre: '.$doom->getElementsByTagName('Nombre')->item(0)->nodeValue."<br/>";
+	}else{
+		echo "Error";
+	}
 
-				die();
+	die();
