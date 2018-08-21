@@ -2,7 +2,7 @@
 
 2018-08-21 v0.1
 
--Cuenta con un método para validar los curp's
+WebService para validar información de personas en México, de momento solo cuenta con la opción para validar por curp
 
 Ws: http://187.160.251.219/ws/index.php?wsdl
 
